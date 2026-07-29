@@ -1,0 +1,6 @@
+.venv/
+.vercel/
+_vc_queue_handlers/
+__pycache__/
+.pytest_cache/
+*.py[cod]

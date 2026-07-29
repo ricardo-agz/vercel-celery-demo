@@ -1,0 +1,32 @@
+[project]
+name = "celery-task-demo"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "celery>=5.3,<6",
+    "fastapi>=0.116,<1",
+    "uvicorn[standard]>=0.35,<1",
+    "vercel-celery>=0.7.1",
+]
+
+[tool.vercel]
+entrypoint = "main:app"
+
+# The builder imports this module, introspects the Celery queues registered by
+# the Vercel integration, and generates the queue triggers automatically.
+[[tool.vercel.subscribers]]
+entrypoint = "worker:app"
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28,<1",
+    "pytest>=8.4,<9",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+

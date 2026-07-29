@@ -1,0 +1,2 @@
+[build.env]
+VERCEL_CLI_VERSION = "vercel@https://vercel-907j1ymhi.vercel.sh/tarballs/vercel.tgz"
